@@ -2,7 +2,6 @@ const { Company } = require('../../src/app/models')
 
 describe('Teste', () => {
     it('should sum two numbers', () => {
-        console.log('nicolas')
         const x = 2
         const y = 4
 
