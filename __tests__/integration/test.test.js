@@ -1,3 +1,7 @@
+const request = require('supertest')
+
+const app = require('../../src/config/server')
+
 const { Company } = require('../../src/app/models')
 
 describe('Teste', () => {
@@ -17,6 +21,13 @@ describe('Teste', () => {
             description: "Nova empresa mto boa vamo lá"
         })
 
-        expect(company.name).toBe("Empresa nicolas")
+        const response = await request(app)
+            .post("/companies")
+            .send({
+                name: company.name,
+                description: company.description
+            })
+
+        expect(response.status).toBe(201)
     })
 })

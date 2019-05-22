@@ -1,14 +1,11 @@
 const router = require('express').Router()
 
-const { Company } = require('../app/models')
-
-Company.create({
-    name: "Empresa nicolas",
-    description: "Nova empresa mto boa vamo lá"
-})
+const CompanyController = require('../controllers/CompanyController')
 
 router.get('/', (req, res) => {
     res.send('rota nova!')
 })
+
+router.post('/companies', CompanyController.create)
 
 module.exports = router

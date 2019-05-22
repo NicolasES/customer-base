@@ -1,0 +1,5 @@
+const CompanyService = {
+    createCompany(companyData) {
+        
+    }
+}
