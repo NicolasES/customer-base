@@ -29,5 +29,7 @@ describe('Teste', () => {
             })
 
         expect(response.status).toBe(201)
+        expect(response.body.name).toBe('Empresa nicolas')
+        expect(response.body.description).toBe("Nova empresa mto boa vamo lá")
     })
 })

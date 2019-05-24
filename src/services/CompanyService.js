@@ -1,5 +1,0 @@
-const CompanyService = {
-    createCompany(companyData) {
-        
-    }
-}
