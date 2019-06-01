@@ -11,7 +11,10 @@ module.exports = {
             },
             company_id: {
                 type: Sequelize.INTEGER,
-                allowNull: false
+                allowNull: false,
+                references: { model: 'companies', key:'id'},
+                onDelete: 'CASCADE',
+                onUpdate: 'CASCADE'
             },
             text: {
                 type: Sequelize.TEXT,
@@ -25,17 +28,6 @@ module.exports = {
                 type: Sequelize.DATE,
                 allowNull: false
             }
-        }).then(() => {
-            return queryInterface.addConstraint('history_notes',  ['company_id'], {
-                type: 'foreign key',
-                name: 'fk_history_to_company',
-                references: {
-                    table: 'companies',
-                    field: 'id'
-                },
-                onDelete: 'cascade',
-                onUpdate: 'cascade'
-            })
         })
     },
 

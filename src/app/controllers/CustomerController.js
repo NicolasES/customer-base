@@ -1,11 +1,9 @@
+const CustomerService = require('../services/CustomerService')
+
 const CustomerController = {
-    create: (req, res) => {
-        res.status(201).json({
-            name: "John",
-            email: "john@email.com",
-            phone: "(99) 99999-9999",
-            annotations: "Um cliente importante!"
-        })
+    create: async (req, res) => {
+        let result = await CustomerService.createCustomer(req.body)
+        res.status(201).json(result)
     }
 }
 

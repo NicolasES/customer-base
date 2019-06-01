@@ -11,7 +11,10 @@ module.exports = {
             },
             company_id: {
                 type: Sequelize.INTEGER,
-                allowNull: true
+                allowNull: true,
+                references: { model: 'companies', key: 'id'},
+                onDelete: 'SET NULL',
+                onUpdate: 'CASCADE'
             },
             name: {
                 type: Sequelize.STRING,
@@ -34,17 +37,6 @@ module.exports = {
                 type: Sequelize.DATE,
                 allowNull: false
             }
-        }).then(() => {
-            return queryInterface.addConstraint('customers', ['company_id'], {
-                type: 'foreign key',
-                name: 'fk_user_to_company',
-                references: {
-                    table: 'companies',
-                    field: 'id'
-                },
-                onDelete: 'set null',
-                onUpdate: 'cascade'
-            })
         })
     },
 
